@@ -1,68 +1,55 @@
-// function Shape(color) {
-//     this.color = color;
-// }
-// Shape.prototype.duplicate = function() {
-//     console.log("This is duplicate prototype");
-// }
-
-// function Circle(radius, color) {
-//     Shape.call(this, color);
-//     this.radius = radius;
-// }
-// Circle.prototype = Object.create(Shape.prototype);
-// Circle.prototype.constructor = Circle;
-
-// Circle.prototype.draw = function() {
-//     console.log("This is draw prototype function");
-// }
-
-// const circle = new Circle(10, 'red');
-// const shape = new Shape("Red");
-function extend(Child, Parent) {
-    Child.prototype = Object.create(Parent.prototype);
-    Child.prototype.constructor = Child;
-}
-function Head(eyes, ears) {
-    this.eyes = eyes;
-    this.ears = ears;
+function create() {
+    let values = document.getElementById('form').elements;
+    let formValues = [];
+    for (let val of values) {
+        if (val.value == '') {
+            alert('Please fill all the fields.');
+            return;
+        }
+        formValues.push(val.value);
+    }
+    document.getElementById('event-name').value = '';
+    document.getElementById('venue').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('cost-per-day').value = '';
+    document.getElementById('no-of-days').value = '';
+    console.log(formValues);
+    let tbody = document.getElementById('tbody');
+    let tr = document.createElement('tr');
+    for (let i = 0; i < formValues.length; i++) {
+        let cell = tr.insertCell(i);
+        cell.innerHTML = formValues[i];
+    }
+    tbody.append(tr);
 }
 
-Head.prototype.brain = function() {
-    console.log("This is brain");
-}
+setInterval(function () {
+    // Sample Output : Today is : Tuesday.
+    // Current time is : 10 PM : 30 : 38
 
-extend(Body, Head);
+    const today = new Date();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    let seconds = today.getSeconds();
+    if (seconds < 10) {
+        seconds = '0' + seconds;
+    }
+    const prepand = (hours >= 12) ? 'PM' : 'AM';
+    hours = (hours > 12) ? hours - 12 : hours;
+    if (hours === 0) {
+        hours = 12;
+    }
+    document.getElementById("dayTime").innerHTML = hours + ' ' + prepand + ' ' + minutes + ' : ' + seconds;
+    // document.getElementById("dayTime").innerHTML = today;
+}, 1000);
 
-function Body(eyes, ears, chest, hands) {
-    Head.call(this, eyes, ears);
-    this.chest = chest;
-    this.hands = hands; 
-}
-
-function Legs(val, eyes, ears) {
-    Head.call(this, eyes, ears);
-    this.val = val;
-}
-extend(Legs, Head);
-
-const head = new Head(2, 2);
-const body = new Body(2, 2, 1, 2);
-const leg = new Legs(2, 2, 2);
-
-const arr = [1, 2, 3, 4];
-// let sumOfUsingArrow = arr.reduce((accu, value) => accu + value, 0);
-// console.log(sumOfUsingArrow(arr));
-// const sum = (acc, val) => acc + val;
-// var sumOfUsingArrow = arr.reduce(sum, 0);
-// console.log(sumOfUsingArrow);
-
-const empty = [1, 2, 3, 4,,,,,,,, 5, 7, 8,,,,];
-const value = empty.filter((val) => {
-    return val >= 0;
-});
-console.log(value);
-
-
-(function name() {
-    console.log("Pkprabu");
-})();
+setInterval(function(){
+    const valitity = new Date('Jan 5, 2021 15:37:25');
+    let hours = valitity.getHours();
+    let minutes = valitity.getMinutes();
+    let seconds = valitity.getSeconds();
+    console.log(hours + ' ' + minutes + ' ' + seconds); 
+}, 1000);

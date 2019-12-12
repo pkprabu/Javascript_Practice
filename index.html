@@ -1,17 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Document</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>#para {margin-bottom: -20px;}</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .disabled-btn-tooltip {
+            display: inline-block;
+        }
+
+        .disabled-btn-tooltip [disabled] {
+            pointer-events: none;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello world</h1>
-    <p id="para">attribute minimization is <span style="margin-top: 20px; margin-bottom: 30px;">forbidden</span>, and the autofocus attribute must be definedattribute minimization is forbidden, and the autofocus attribute must be definedattribute minimization is forbidden, and the autofocus attribute must be defined</p>
-    <!-- <p>attribute minimization is <span style="margin-top: 20px; margin-bottom: 30px;">forbidden</span>, and the autofocus attribute must be definedattribute minimization is forbidden, and the autofocus attribute must be definedattribute minimization is forbidden, and the autofocus attribute must be defined</p> -->
-    <ul id="ul"></ul>
+    <div class="container mb-5">
+        <div id="dayTime" class="mt-5 mb-5"></div>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <form id="form">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="event-name"
+                                            placeholder="Event name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="venue" placeholder="Venue">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" id="date" placeholder="Date">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="cost-per-day"
+                                            placeholder="Cost Per day">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form-control" id="no-of-days"
+                                            placeholder="No of Days Needed">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <span class="disabled-btn-tooltip"><button onclick="create()" id="add-event-btn" type="button"
+                            class="btn btn-outline-success">Add
+                            Event</button></span>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <div id="event-tbl">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Event Name</th>
+                                <th>Venue</th>
+                                <th>Date</th>
+                                <th>Cost Per Day</th>
+                                <th>No of Days</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="options"></div>
+    </div>
     <script src="js/index.js"></script>
+    <!-- <script>
+        let isDisabled = $("button").prop('disabled');
+        if (isDisabled) {
+            $('.disabled-btn-tooltip').tooltip({ title: "Disabled", placement: "top" });
+        }
+    </script> -->
 </body>
+
 </html>

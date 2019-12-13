@@ -46,10 +46,11 @@ setInterval(function () {
     // document.getElementById("dayTime").innerHTML = today;
 }, 1000);
 
-setInterval(function(){
-    const valitity = new Date('Jan 5, 2021 15:37:25');
-    let hours = valitity.getHours();
-    let minutes = valitity.getMinutes();
-    let seconds = valitity.getSeconds();
-    console.log(hours + ' ' + minutes + ' ' + seconds); 
-}, 1000);
+// setInterval(function(){
+//     const valitity = new Date('Jan 5, 2021 15:37:25');
+//     let hours = valitity.getHours();
+//     let minutes = valitity.getMinutes();
+//     let seconds = valitity.getSeconds();
+//     console.log(hours + ' ' + minutes + ' ' + seconds); 
+// }, 1000);
+

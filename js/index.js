@@ -54,3 +54,7 @@ setInterval(function () {
 //     console.log(hours + ' ' + minutes + ' ' + seconds); 
 // }, 1000);
 
+function printPage() {
+    window.print();
+}
+
